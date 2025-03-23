@@ -136,3 +136,4 @@ def solution(board, nums):
     answer += int(sum(board[N - 1 - i][i] for i in range(N)) == 0)
 
     return answer
+# 아 sum을 활용하면 되는구나...
