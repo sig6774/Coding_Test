@@ -86,3 +86,16 @@ on a.departmentId = c.departmentId
 where a.departmentId = c.departmentId 
 and a.salary = c.salary
 ;
+
+-- 참고 풀이 
+SELECT d.name AS Department, 
+       e.name AS Employee, 
+       e.salary AS Salary
+FROM Employee e
+JOIN Department d ON e.departmentId = d.id
+WHERE e.salary = (
+    SELECT MAX(salary)
+    FROM Employee
+    WHERE departmentId = e.departmentId
+);
+-- 서브쿼리를 이렇게 쓰는데 훨씬 간편하네..
